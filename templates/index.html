@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+
+{% block head%}
+<title>Fruits</title>
+{% endblock head%}
+
+
+{% block content %}
+<!--<h1>Template</h1>-->
+
+<div class="table-bordered">
+   <center>
+    <h1 style="text-align: center">Fruits</h1>
+    
+    <table>
+        <tr>
+            <th>Fruit</th>
+            <th>Date and Time</th>
+            <th>Delete</th>
+        </tr>
+        {% for fruit in fruits %}
+            <tr>
+                <td>{{fruit.content}}</td>
+                <td>{{fruit.date_created}}</td>
+                <td>
+                    <a href="/delete/{{fruit.id}}">Delete</a>
+                    <br>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+    
+    <form action="/" method="post">
+        <input type="text" name ="content" id="content">
+        <input type="submit" value="Add Fruit">
+    </form>
+    </center>
+</div>
+
+{% endblock content%}
